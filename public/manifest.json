@@ -1,0 +1,37 @@
+{
+  "name": "BlogElevate",
+  "short_name": "BlogElevate",
+  "theme_color": "#445877",
+  "background_color": "#445877",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "PWA.jpg",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "PWA.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "PWA.jpg",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "PWA.jpg",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "PWA.jpg   ",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
