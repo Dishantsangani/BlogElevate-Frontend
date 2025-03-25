@@ -1,12 +1,19 @@
-# React + Vite
+Project: BlogElevate
+Description: A full-stack blogging platform built using the MERN (MongoDB, Express.js, React.js, Node.js) stack, enabling users to create, edit, and manage blogs with authentication and a user-friendly interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Key Features:
+✅ User Authentication – Secure login and signup with JWT authentication.
+✅ Blog Management – Users can create, edit, delete, and view blogs.
+✅ Rich Text Editor – Allows formatting for engaging content creation.
+✅ Responsive UI – Fully mobile-friendly and optimized for different screen sizes.
+✅ Comment System – Enables interaction through comments.
+✅ SEO Optimization – Implemented best SEO practices for better visibility.
+✅ RESTful API – Built a well-structured backend with Express and MongoDB.
+✅ Performance Optimization – Used lazy loading and efficient state management.
 
-Currently, two official plugins are available:
+Tech Stack:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+▫ Frontend: React.js, Tailwind CSS, Axios
+▫ Backend: Node.js, Express.js, MongoDB, Mongoose
+▫ Authentication: JWT (JSON Web Token)
+▫ Hosting & Deployment: Netlify (Frontend), Render/Vercel (Backend), MongoDB Atlas
