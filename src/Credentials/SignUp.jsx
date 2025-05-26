@@ -12,6 +12,7 @@ function SignUp() {
   const [error, seterror] = useState({ email: "", password: "" });
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const Validation = () => {
     let validerror = { email: "", password: "" };
@@ -42,7 +43,7 @@ function SignUp() {
     setErrorMsg("");
 
     if (!Validation()) return;
-
+    setLoading(true);
     axios
       .post(
         "https://blogelevate-backend.onrender.com/auth/signup",
@@ -50,6 +51,7 @@ function SignUp() {
         { withCredentials: true }
       )
       .then((res) => {
+        setLoading(false);
         if (res.data.token) {
           localStorage.setItem("Token", res.data.token);
           setSuccessMsg("Account created successfully! Redirecting...");
@@ -59,6 +61,7 @@ function SignUp() {
         }
       })
       .catch((err) => {
+        setLoading(false);
         setErrorMsg("Signup failed! Email may already be in use.", err);
       });
   };
@@ -138,9 +141,10 @@ function SignUp() {
             <div className="mt-6">
               <button
                 type="submit"
-                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+                disabled={loading}
+                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50 disabled:opacity-50"
               >
-                Create Account
+                {loading ? "Creating Account..." : "Create Account"}
               </button>
             </div>
           </form>
