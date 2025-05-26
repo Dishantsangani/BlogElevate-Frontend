@@ -12,6 +12,7 @@ function SignIn() {
   const [error, setError] = useState({ email: "", password: "" });
   const [successMsg, setSuccessMsg] = useState(""); // ✅ Success message state
   const [errorMsg, setErrorMsg] = useState(""); // ✅ General error message state
+  const [loading, setLoading] = useState(false);
 
   const validation = () => {
     let errors = { email: "", password: "" };
@@ -40,9 +41,8 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validation()) {
-      return; // Stop submission if validation fails
-    }
+    if (!validation()) return; // Stop submission if validation fails
+    setLoading(true);
 
     try {
       const res = await axios.post(
@@ -61,6 +61,8 @@ function SignIn() {
       }
     } catch (err) {
       setErrorMsg(err.response?.data?.message || "Server error. Try again.");
+    } finally {
+      setLoading(false); // ✅ Stop loading
     }
   };
 
@@ -132,9 +134,14 @@ function SignIn() {
             <div className="mt-6">
               <button
                 type="submit"
-                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+                disabled={loading}
+                className={`w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform ${
+                  loading
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "bg-gray-800 hover:bg-gray-700"
+                } rounded-lg focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50`}
               >
-                Sign In
+                {loading ? "Signing In..." : "Sign In"}
               </button>
             </div>
           </form>
