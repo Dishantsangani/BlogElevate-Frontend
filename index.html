@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./public/favicon.jpg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlogElevate</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.jsx"></script>
+    <!-- PWA -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/serviceWorker.js") // Note: path starts with "/"
+          .then(() => {
+            console.log("Service Worker Registered");
+          })
+          .catch(() => {
+            console.log("Error Registering Service Worker");
+          });
+      }
+    </script>
+  </body>
+</html>
